@@ -54,14 +54,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  console.log(yekanbakh.variable);
+  
   return (
     <html
       dir="rtl"
-      className={`${yekanbakh.variable} ${figtree.variable} dark`}
-    >
+      className={`${yekanbakh.variable} ${figtree.variable} dark`}>
       <body className="min-h-screen grid grid-rows-[80px_1fr_auto] dark:bg-base-100 dark:text-base-content">
         <Header />
-        <main>{children}</main>
+        <main>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

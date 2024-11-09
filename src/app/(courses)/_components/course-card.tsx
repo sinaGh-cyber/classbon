@@ -22,7 +22,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
       <div className="card">
         <figure>
           <Image
-            src={`https://api.classbon.com/api/picture/${coverImageId!}`}
+            src={`https://api.classbon.com/api/picture/${coverImageId}`}
             alt={title}
             width={550}
             height={327}

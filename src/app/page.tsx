@@ -51,7 +51,7 @@ export default async function Home() {
 						برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
 					</p>
 				</div>
-				<Suspense fallback={<CardPlaceholder count={5} className='!mt-20' />}>
+				<Suspense fallback={<CardPlaceholder count={5} className='!mt-[259px]' />}>
 					<CourseCardList courses={[]} />
 				</Suspense>
 			</section>

@@ -1,27 +1,24 @@
-'use client';
+"use client";
 
-import { readData } from '@/core/http-service/http-service';
-import { useParams } from 'next/navigation';
-import { useEffect } from 'react';
-import { useCourseComments } from '../../_apis/get-comments';
+import { useParams } from "next/navigation";
+import { useCourseComments } from "../../_apis/get-comments";
+import { Comment } from "@/app/_components/comment";
 
 const CourseComments = () => {
-	const { slug } = useParams();
-	const { data: comments } = useCourseComments({
-		params: {
-			slug: slug as string,
-			page: 1,
-		},
-	});
-	return (
-		<>
-			{comments?.data.map((p) => (
-				<p key={p.id} className="mb-8">
-					{p.commentText}
-				</p>
-			))}
-		</>
-	);
+    const { slug } = useParams();
+    const { data: comments } = useCourseComments({
+        params: {
+            slug: slug as string,
+            page: 1,
+        },
+    });
+    return (
+        <>
+            {comments?.data.map((comment) => (
+                <Comment key={`comment-${comment.id}`} {...comment} variant="info"/>
+            ))}
+        </>
+    );
 };
 
 export default CourseComments;

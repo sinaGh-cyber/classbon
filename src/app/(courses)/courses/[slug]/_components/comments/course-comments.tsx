@@ -1,24 +1,27 @@
-"use client";
+'use client';
 
-import { useParams } from "next/navigation";
-import { useCourseComments } from "../../_apis/get-comments";
-import { Comment } from "@/app/_components/comment";
+import { useParams } from 'next/navigation';
+import { useCourseComments } from '../../_apis/get-comments';
+import { Comment } from '@/app/_components/comment';
+import { TextPlaceholder } from '@/app/_components/placeholders';
 
 const CourseComments = () => {
-    const { slug } = useParams();
-    const { data: comments } = useCourseComments({
-        params: {
-            slug: slug as string,
-            page: 1,
-        },
-    });
-    return (
-        <>
-            {comments?.data.map((comment) => (
-                <Comment key={`comment-${comment.id}`} {...comment} variant="info"/>
-            ))}
-        </>
-    );
+	const { slug } = useParams();
+	const { data: comments, isLoading } = useCourseComments({
+		params: {
+			slug: slug as string,
+			page: 1,
+		},
+	});
+	return (
+		<>
+			{comments?.data.map((comment) => (
+				<Comment key={`comment-${comment.id}`} {...comment} variant="info" />
+			))}
+
+			{isLoading && <TextPlaceholder />}
+		</>
+	);
 };
 
 export default CourseComments;

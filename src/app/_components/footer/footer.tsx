@@ -8,6 +8,7 @@ export const Footer: React.FC = () => {
 				<div className="text-center flex flex-col items-center lg:me-20">
 					<Image
 						src="/images/logo-en-light.svg"
+						className='w-[180px] h-[36px]'
 						width={180}
 						height={36}
 						alt="کلاسبن"

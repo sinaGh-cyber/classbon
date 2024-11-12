@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "../button/button";
 import { IconArrowLeftFill } from "../icons/icons";
+import classNames from 'classnames';
 
 export const HomeHeroSection: React.FC = () => {
     return (
@@ -37,6 +38,7 @@ export const HomeHeroSection: React.FC = () => {
           </div>
           <Image
             src="/images/programmer-landing.svg"
+            className="w-[702px] h-[521px]"
             alt=""
             width={702}
             height={521}

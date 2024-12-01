@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { TextInput } from '@/app/_components/form-input';
 import { useRouter } from 'next/navigation';
 import { useSignIn } from '../_apis/signin';
+import { useNotificationStore } from '@/stores/notification.store';
 
 const SignInForm = () => {
   const {
@@ -17,9 +18,12 @@ const SignInForm = () => {
 
   const router = useRouter();
 
+	const showNotification = useNotificationStore(state => state.showNotification)
+
   const signIn = useSignIn({
       onSuccess: () => {
-          router.push(`/verify?mobile=${getValues('mobile')}`)
+          router.push(`/verify?mobile=${getValues('mobile')}`);
+					showNotification({message:"کد فعال سازی به شماره شما ارسال شد",type:"info"})
       }
   })
 
